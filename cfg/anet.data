@@ -1,0 +1,6 @@
+classes= 1
+train  = /home/ubuntu/data/anet/train.txt
+valid  = /home/ubuntu/data/anet/test.txt
+names = data/anet.names
+backup = backup
+
