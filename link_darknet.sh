@@ -6,4 +6,4 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
-ln -s ./darknet $1
+ln -s $1 ./darknet 
