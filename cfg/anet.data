@@ -1,4 +1,4 @@
-classes= 1
+classes= 3
 train  = /home/ubuntu/data/anet/train.txt
 valid  = /home/ubuntu/data/anet/test.txt
 names = data/anet.names
