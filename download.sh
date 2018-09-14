@@ -5,5 +5,5 @@ if [ ! -f yolov3-tiny.weights ]; then
 fi
 
 if [ ! -f yolov3-tiny.conv.15 ]; then
-    ./darknet partial cfg/yolov3-tiny.cfg yolov3-tiny.weights yolov3-tiny.conv.15 15
+    ./darknet/darknet partial cfg/yolov3-tiny.cfg yolov3-tiny.weights yolov3-tiny.conv.15 15
 fi
