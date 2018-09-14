@@ -45,4 +45,6 @@ Using cfg: ${cfg}, weights: ${weights}"
 
 predict_name=predict_$(basename $image)
 
-mv predictions.jpg $predict_name
+mv predictions.png $predict_name
+
+echo " move result to $predict_name, for $image"
