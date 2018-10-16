@@ -1,10 +1,7 @@
 #!/bin/bash
 
-conv=$1
-
 echo $@
 
+./darknet/darknet detector train cfg/anet.data $* -gpus 0,1,2,3 
 
-./darknet/darknet detector train cfg/anet.data cfg/yolov3-anet.cfg $conv -gpus 0,1,2,3
-
-# ../data/darknet53.conv.74
+# cfg/yolov3-anet.cfg ../data/darknet53.conv.74 
