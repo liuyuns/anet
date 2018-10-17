@@ -1,7 +1,12 @@
 #!/bin/bash
 
-echo $@
+echo "args: $*"
 
-./darknet/darknet detector train cfg/anet.data $* -gpus 0,1,2,3 
+cfg=$1
+shift
 
-# cfg/yolov3-anet.cfg ../data/darknet53.conv.74 
+conv=../data/darknet53.conv.74 
+
+./darknet/darknet_cv detector train cfg/anet.data $cfg $conv $* -gpus 0,1,2,3 
+
+# cfg/yolov3-anet.cfg 
