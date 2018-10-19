@@ -7,5 +7,5 @@ shift
 
 conv=../data/yolov3-tiny.conv.15 
 
-./darknet/darknet_cv detector train cfg/anet.data $cfg $conv $* -gpus 0,1,2,3 
+./darknet/darknet detector train cfg/anet.data $cfg $conv $* -gpus 0,1,2,3 
 
