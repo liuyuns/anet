@@ -53,7 +53,7 @@ do
             echo "Run detection for ${image}"
             if [ "$eval_script" == "" ];
             then
-            ./darknet/darknet detector test cfg/anet.data $cfg_file $weight "~/data/$image" -ext_output -dont_show >${log_prefix}_${size}.log
+            ./darknet/darknet detector test cfg/anet.data $cfg_file $weight ~/data/$image -ext_output -dont_show >>${log_prefix}_${size}.log
             fi
         done
     done
