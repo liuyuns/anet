@@ -20,6 +20,7 @@ if [ "$w_h" == "" ]; then
 fi
 
 shift
+eval_script=$1
 
 last_weight=none
 
@@ -29,7 +30,7 @@ cfg_file=cfg/test-${cfg_name}.cfg
 
 while true
 do
-    weight=$( ls backup/${cfg_name} -t | head -1 )
+    weight=$( ls backup/${cfg_name}* -t | head -1 )
     if [ "$weight" == "$last_weight" ];
         then 
         echo "Same weight, sleep 1m until next check...."
@@ -39,7 +40,11 @@ do
 
     last_weight=$weight
 
-    ./batch_eval.sh $cfg_file $weight $w_h
+    echo "New weight found: $weight"
+
+    if [ "$eval_script" == "" ]; then
+      ./batch_eval.sh $cfg_name $weight $w_h
+    fi
  
 done
 
