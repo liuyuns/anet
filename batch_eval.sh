@@ -7,11 +7,19 @@ if [ "$cfg_name" == "" ];
     then
     echo ""
     echo "  Usage:"
-    echo "    $0 [cfg_name]"
+    echo "    $0 [cfg_name] [width/height ratio]"
     echo "      [cfg_name], e.g. yolov3-anet, anet-icons"
+    echo "      [width/height ratio] e.g. 16/28"
 
     exit  1
 fi
+
+w_h=$1
+if [ "$w_h" == "" ]; then
+  w_h=1
+fi
+
+shift
 
 eval_script=$1
 
@@ -25,7 +33,7 @@ cfg_file=cfg/test-${cfg_name}.cfg
 
 while true
 do
-    weight=$( ls backup/${cfg_name}* -t | head -1 )
+    weight=$( ls backup/${cfg_name} -t | head -1 )
     if [ "$weight" == "$last_weight" ];
         then 
         echo "Same weight, sleep 1m until next check...."
@@ -42,9 +50,10 @@ do
     # from 8*32 to 20 * 32, (256-640)
     for scale in {8..20}; do
         let "size = ${scale} * 32"
+	let "height = ${scale} * ${w_h} * 32 "
         echo "Size: ${size}"
         sed -i s"/width=.*/width=${size}/g" $cfg_file
-        sed -i s"/height=.*/height=${size}/g" $cfg_file
+        sed -i s"/height=.*/height=${height}/g" $cfg_file
 
         cat $cfg_file | head -9
 
