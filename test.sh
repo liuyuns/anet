@@ -41,7 +41,7 @@ echo "
 Using cfg: ${cfg}, weights: ${weights}"
 
 
-./darknet/darknet detector test cfg/anet_v1.data $cfg $weights $image -thresh 0.3 $@
+./darknet/darknet detector test cfg/anet.data $cfg $weights $image -thresh 0.3 $@
 
 predict_name=predict_$(basename $image)
 
