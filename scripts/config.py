@@ -21,7 +21,7 @@ num_of_filters = (num_of_names + 5) * 3
 def print_general_info():
     print ('num of names: #%d, filters: #%d = (%d+5)*3' % (num_of_names, num_of_filters, num_of_names))
 
-def update_net_resolution(lines, (w,h)):
+def update_net_resolution(lines, w, h):
     for i, e in enumerate(lines):
         if e.find('width') == 0:
             lines[i] = "width=%d\n"%w
@@ -81,14 +81,14 @@ def main():
     cfg_file = os.path.join(work_dir, './cfg/%s.cfg' % args.cfg_name)
 
     lines = []
-    with open(cfg_file, 'r') as cfg_content:
+    with open(cfg_file, 'r', newline='\n') as cfg_content:
         lines = cfg_content.readlines()
         if args.update_classes:
             update_classes_and_filters(lines)
 
         
         if args.width and args.height:
-            update_net_resolution(lines, (args.width, args.height))
+            update_net_resolution(lines, args.width, args.height)
         
         if args.update_anchors:
             if args.anchors_file == None:
@@ -98,7 +98,7 @@ def main():
                     anchors = f.readline()
                 update_anchors(lines, anchors)
 
-    with open(cfg_file, 'w') as cfg_writter:
+    with open(cfg_file, 'w', newline='\n') as cfg_writter:
         cfg_writter.writelines(lines)
 
 if __name__ == '__main__':
