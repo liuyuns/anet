@@ -23,7 +23,7 @@ if [ "$weight" == "" ];
     exit  1
 fi
 
-test_images=( "Android_2_Pro_Cart_Input_Cart.png" "IOS_2_Pro_Cart_Input_Button.png" "Web_2_Pro_Cart_Ham.png" )
+test_images=( "Android_2_Pro_Cart_Input_Cart.png" "IOS_2_Pro_Cart_Input_Button.png" "Web_2_Pro_Cart_Ham.png" "IOS_3_Button_Input_Ham.png")
 
 [ -d output ] || mkdir output
 
