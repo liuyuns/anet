@@ -1,2 +1,4 @@
 /darknet/
 /data/labels
+/output
+*.weights
