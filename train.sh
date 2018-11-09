@@ -14,7 +14,12 @@ fi
 echo "Args after cfg: $*"
 
 conv=../data/darknet53.conv.74 
+if [[ $1 == *.weights ]]; then
+  conv=""
+fi
 
 ./darknet/darknet detector train cfg/anet.data $cfg $conv $* -gpus 0,1,2,3 
+
+# -gpus 0,1,2,3 
 
 # cfg/yolov3-anet.cfg 
