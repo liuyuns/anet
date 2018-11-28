@@ -24,6 +24,6 @@ for root, dirs, files in os.walk(os.path.join(wd, walkPattern)):
         list_file = list_file_train if label_file.find('test_') == -1 else list_file_test
         list_file.write('%s\n'%image_file)
  
- list_file_train.close()
- list_file_test.close()
+list_file_train.close()
+list_file_test.close()
 
