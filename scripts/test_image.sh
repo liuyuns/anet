@@ -38,8 +38,12 @@ weight_name=`basename $weight .weights`
 extra_args=$(if [ "$out_image" != "" ]; then echo "-out output/${out_image}_${weight_name}";  else echo ""; fi)
 
 exe_args="$cfg_file $weight $image $extra_args $*"
+
+# echo "Args for detector test: $exe_args"
+
+
 if [ -f "./darknet/darknet" ]; then    
-    ./darknet/darknet detector test cfg/anet.data $exe_args
+    ./darknet/darknet detector test cfg/anet.data $exe_args 2>nul
 else
     echo "Args for detector test: $exe_args"
     echo ""

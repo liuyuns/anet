@@ -16,7 +16,7 @@ echo ""
 exit 1
 fi
 
-weight=$( ls models/${cfg_name}* -t | head -1 )
+weight=$( ls backup/${cfg_name}* -t | head -1 )
 
 if [ "$weight" == "" ]; then
     echo "Weight file not found under backup folder!!!"
@@ -35,6 +35,6 @@ do
     file_name=`basename $file .png`
     file_name=`basename $file_name .jpg`
 
-    $script_dir/test_image.sh $cfg_name $weight $file "predict_$file_name" $args
+    $script_dir/test_image.sh $cfg_name $weight $file "predict_$file_name" $args -dont_show
      
 done
