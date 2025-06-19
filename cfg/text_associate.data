@@ -1,0 +1,6 @@
+classes= 2
+train  = datasets/text_associate/train.txt
+valid  = datasets/text_associate/test.txt
+names = datasets/text_associate/labels.names
+backup = backup
+

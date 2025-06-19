@@ -1,0 +1,4 @@
+usage: darknet_no_gpu.exe imtest jitter/color/resize [image] [(optional args)]
+
+  optional args for jitter: [-jitter 0.3]
+  optional args for color: [-hue 0.1] [-sat 1.5] [-exposure 1.5]

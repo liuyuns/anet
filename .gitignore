@@ -1,4 +1,7 @@
 /darknet/
 /data/labels
+/datasets/
 /output
 *.weights
+*.conv.74
+*.conv.15
